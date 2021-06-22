@@ -1,8 +1,8 @@
 {
-  "name": "fluxfc/gravity-forms-plugin",
+  "name": "fluxfc/plugin-gravity-forms",
   "description": "",
   "keywords": ["wordpress", "plugin"],
-  "homepage": "https://github.com/taahirisaacs/gravity-forms-plugin",
+  "homepage": "https://github.com/fluxfc/plugin-gravity-forms",
   "authors": [
     {
       "name": "Gravity Forms",
