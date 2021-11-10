@@ -28,7 +28,7 @@ class GF_License_API_Response extends GF_API_Response {
 	 * @param bool $validate Whether to validate the data passed.
 	 * @param GF_Transient_Strategy $transient_strategy The Transient Strategy used to store things in transients.
 	 */
-	public function __construct( $data, $validate = true, GF_Transient_Strategy $transient_strategy ) {
+	public function __construct( $data, $validate, GF_Transient_Strategy $transient_strategy ) {
 		$this->transient_strategy = $transient_strategy;
 
 		// Data is a wp_error, parse it to get the correct code and message.
