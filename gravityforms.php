@@ -3,11 +3,7 @@
 Plugin Name: Gravity Forms
 Plugin URI: https://gravityforms.com
 Description: Easily create web forms and manage form entries within the WordPress admin.
-<<<<<<< HEAD
-Version: 2.6.7
-=======
-Version: 2.5.14.3
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
+Version: 2.6.8.1
 Requires at least: 4.0
 Requires PHP: 5.6
 Author: Gravity Forms
@@ -240,11 +236,7 @@ class GFForms {
 	 *
 	 * @var string $version The version number.
 	 */
-<<<<<<< HEAD
-	public static $version = '2.6.7';
-=======
-	public static $version = '2.5.14.3';
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
+	public static $version = '2.6.8.1';
 
 	/**
 	 * Handles background upgrade tasks.
@@ -2728,7 +2720,6 @@ class GFForms {
 			'wp-backbone',
 			'gform_gravityforms'
 		), $version, true );
-<<<<<<< HEAD
 		wp_register_script( 'gform_gravityforms_admin_vendors', $base_url . "/assets/js/dist/vendor-admin{$min}.js", array(), $version, true );
 		wp_register_script( 'gform_gravityforms_admin', $base_url . "/assets/js/dist/scripts-admin{$min}.js", array(
 			'gform_gravityforms_admin_components',
@@ -2739,16 +2730,6 @@ class GFForms {
 			'gform_gravityforms_utils',
 			'gform_gravityforms',
 			'gform_simplebar',
-=======
-		wp_register_script( 'gform_gravityforms_admin_vendors', $base_url . "/assets/js/dist/vendor-admin{$min}.js", array(
-			'gform_gravityforms',
-		), $version, true );
-		wp_register_script( 'gform_gravityforms_admin', $base_url . "/assets/js/dist/scripts-admin{$min}.js", array(
-			'gform_gravityforms_admin_vendors',
-		), $version, true );
-		wp_register_script( 'gform_gravityforms_theme_vendors', $base_url . "/assets/js/dist/vendor-theme{$min}.js", array(
-			'gform_gravityforms',
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 		), $version, true );
 		wp_register_script( 'gform_gravityforms_theme', $base_url . "/assets/js/dist/scripts-theme{$min}.js", array(
 			'gform_gravityforms_theme_vendors',
@@ -2838,19 +2819,11 @@ class GFForms {
 		}
 
 		$scripts = GFCommon::get_hooks_javascript_code();
-<<<<<<< HEAD
 
 		if ( empty( $scripts ) ) {
 			return $form_string;
 		}
 
-=======
-
-		if ( empty( $scripts ) ) {
-			return $form_string;
-		}
-
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 		return '<script type="text/javascript">' . $scripts . '</script>' . $form_string;
 	}
 

@@ -125,7 +125,6 @@ abstract class GFAddOn {
 	 *
 	 * @var array
 	 */
-<<<<<<< HEAD
 	private static $results_addons = array();
 
 	/**
@@ -145,9 +144,6 @@ abstract class GFAddOn {
 	 * @var array
 	 */
 	private static $registered_styles = array();
-=======
-	private static $results_addons = [];
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 
 	/**
 	 * Class constructor which hooks the instance into the WordPress init action
@@ -392,7 +388,6 @@ abstract class GFAddOn {
 	}
 
 	/**
-<<<<<<< HEAD
 	 * Returns a list of the registered scripts that will be enqueued.
 	 *
 	 * This contains the scripts that pass _can_enqueue_script.
@@ -419,8 +414,6 @@ abstract class GFAddOn {
 	}
 
 	/**
-=======
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 	 * Override this function to add initialization code (i.e. hooks) for the public (customer facing) site
 	 */
 	public function init_frontend() {

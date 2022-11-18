@@ -222,7 +222,6 @@ class GFFormDetail {
 				);
 				echo GFCommon::get_preview_link( $preview_args );
 
-<<<<<<< HEAD
 				$ajax_save_disabled = $save_form_helper->is_ajax_save_disabled( $form_id );
 				if ( $ajax_save_disabled ) {
 					$save_button = '<button aria-disabled="false" aria-expanded="false" class="update-form gform-button gform-button--primary gform-button--icon-leading " onclick="SaveForm();" onkeypress="SaveForm();"> <i class="gform-button__icon gform-icon gform-icon--floppy-disk"></i>' . esc_html__( 'Save Form', 'gravityforms' ) . '</button>';
@@ -244,9 +243,6 @@ class GFFormDetail {
 					</button>';
 				}
 
-=======
-				$save_button = '<button aria-disabled="false" aria-expanded="false" class="update-form gform-button gform-button--primary gform-button--icon-leading " onclick="SaveForm();" onkeypress="SaveForm();"> <i class="gform-button__icon gform-icon gform-icon--floppy-disk"></i>' . esc_html__( 'Save Form', 'gravityforms' ) . '</button>';
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 
 				/**
 				* A filter to allow you to modify the Form Save button.

@@ -93,10 +93,7 @@ class GF_Block_Form extends GF_Block {
 			'wp-element',
 			'wp-components',
 			'wp-i18n',
-<<<<<<< HEAD
 			'gform_gravityforms_admin',
-=======
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 		);
 
 		global $pagenow;
@@ -108,15 +105,9 @@ class GF_Block_Form extends GF_Block {
 			array(
 				'handle'    => $this->script_handle,
 				'in_footer' => true,
-<<<<<<< HEAD
 				'src'       => GFCommon::get_base_url() . "/assets/js/dist/blocks{$min}.js",
 				'deps'      => $deps,
 				'version'   => $min ? GFForms::$version : filemtime( GFCommon::get_base_path() . '/assets/js/dist/blocks.js' ),
-=======
-				'src'       => GFCommon::get_base_url() . "/js/blocks{$min}.js",
-				'deps'      => $deps,
-				'version'   => $min ? GFForms::$version : filemtime( GFCommon::get_base_path() . '/js/blocks.js' ),
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 				'callback'  => array( $this, 'localize_script' ),
 			),
 		);

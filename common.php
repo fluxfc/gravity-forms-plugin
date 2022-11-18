@@ -6080,58 +6080,7 @@ Content-Type: text/html;
 	 * @see        class-gf-config-service-provider.php::register_config_items()
 	 */
 	public static function localize_gform_i18n() {
-<<<<<<< HEAD
 		return; // as of 2.6, we no longer directly localize our data.
-=======
-		wp_localize_script(
-			'gform_gravityforms', 'gform_i18n', array(
-				'datepicker' => array(
-					'days'     => array(
-						'monday'    => esc_html__( 'Mon', 'gravityforms' ),
-						'tuesday'   => esc_html__( 'Tue', 'gravityforms' ),
-						'wednesday' => esc_html__( 'Wed', 'gravityforms' ),
-						'thursday'  => esc_html__( 'Thu', 'gravityforms' ),
-						'friday'    => esc_html__( 'Fri', 'gravityforms' ),
-						'saturday'  => esc_html__( 'Sat', 'gravityforms' ),
-						'sunday'    => esc_html__( 'Sun', 'gravityforms' ),
-					),
-					'months'   => array(
-						'january'   => esc_html__( 'January', 'gravityforms' ),
-						'february'  => esc_html__( 'February', 'gravityforms' ),
-						'march'     => esc_html__( 'March', 'gravityforms' ),
-						'april'     => esc_html__( 'April', 'gravityforms' ),
-						'may'       => esc_html__( 'May', 'gravityforms' ),
-						'june'      => esc_html__( 'June', 'gravityforms' ),
-						'july'      => esc_html__( 'July', 'gravityforms' ),
-						'august'    => esc_html__( 'August', 'gravityforms' ),
-						'september' => esc_html__( 'September', 'gravityforms' ),
-						'october'   => esc_html__( 'October', 'gravityforms' ),
-						'november'  => esc_html__( 'November', 'gravityforms' ),
-						'december'  => esc_html__( 'December', 'gravityforms' ),
-					),
-					'firstDay' => absint( get_option( 'start_of_week' ) ),
-					'iconText' => esc_html__( 'Select date', 'gravityforms' ),
-				),
-			)
-		);
-
-		if ( is_admin() ) {
-			// localizes all gravity forms language strings for the admin
-			wp_localize_script(
-				'gform_gravityforms', 'gform_admin_i18n', array(
-					// named sub objects that match the admin js file name (camelCased) they are localizing
-					'formAdmin'   => array(
-						'toggleFeedInactive' => esc_html__( 'Inactive', 'gravityforms' ),
-						'toggleFeedActive'   => esc_html__( 'Active', 'gravityforms' ),
-					),
-					'shortcodeUi' => array(
-						'editForm'   => esc_html__( 'Edit Form', 'gravityforms' ),
-						'insertForm' => esc_html__( 'Insert Form', 'gravityforms' ),
-					),
-				)
-			);
-		}
->>>>>>> 4aca0428747c3834f131f7a7be8e9ce96716453e
 	}
 
 	/**
@@ -7290,6 +7239,42 @@ Content-Type: text/html;
 	 */
 	public static function form_has_fields( $form ) {
 		return ! empty( $form['fields'] ) && is_array( $form['fields'] );
+	}
+
+	/**
+	 * Determines if the user must be logged in to view and submit the form.
+	 *
+	 * @since 2.6.9
+	 *
+	 * @param array $form The current form object.
+	 *
+	 * @return bool
+	 */
+	public static function form_requires_login( $form ) {
+		$form_id       = absint( rgar( $form, 'id' ) );
+		$key           = __METHOD__ . $form_id;
+		$require_login = GFCache::get( $key, $found );
+
+		if ( $found ) {
+			return $require_login;
+		}
+
+		/**
+		 * Filter whether the user must be logged-in to view and submit the form.
+		 *
+		 * @since 2.4
+		 *
+		 * @param bool  $require_login Indicates if the form requires the user to be logged-in.
+		 * @param array $form          The current form object.
+		 */
+		$require_login = (bool) gf_apply_filters( array(
+			'gform_require_login',
+			$form_id,
+		), (bool) rgar( $form, 'requireLogin' ), $form );
+
+		GFCache::set( $key, $require_login );
+
+		return $require_login;
 	}
 
 	/**
