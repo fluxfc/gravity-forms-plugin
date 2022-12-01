@@ -693,22 +693,6 @@ Class GFNotification {
 
 					<script type="text/javascript">
 
-						gform.addFilter( 'gform_merge_tags', 'MaybeAddSaveLinkMergeTag' );
-						function MaybeAddSaveLinkMergeTag( mergeTags, elementId, hideAllFields, excludeFieldTypes, isPrepop, option ) {
-							var event = document.getElementById( 'event' ).value;
-							if ( event === 'form_saved' || event === 'form_save_email_requested' ) {
-								mergeTags['other'].tags.push( {
-									tag:  '{save_link}',
-									label: <?php echo json_encode( esc_html__( 'Save & Continue Link', 'gravityforms' ) ); ?>
-								} );
-								mergeTags['other'].tags.push( {
-									tag:   '{save_token}',
-									label: <?php echo json_encode( esc_html__( 'Save & Continue Token', 'gravityforms' ) ); ?>
-								} );
-							}
-							return mergeTags;
-						}
-
 						<?php
 						if ( empty( $form['notifications'] ) ) {
 							$form['notifications'] = array();
